@@ -488,7 +488,6 @@ class TestBaxterPredicates(unittest.TestCase):
         self.assertFalse(pred.test(0))
         # Find IK Solution
         trajectory = []
-
         trajectory.append(baxter.get_ik_from_pose([1.2, -0.1, 0.925+3*const.RETREAT_DIST], [0,0,0], "right_arm")[0])       #s=3
         trajectory.append(baxter.get_ik_from_pose([1.2, -0.1, 0.925+2*const.RETREAT_DIST], [0,0,0], "right_arm")[0])       #s=2
         trajectory.append(baxter.get_ik_from_pose([1.2, -0.1, 0.925+const.RETREAT_DIST], [0,0,0], "right_arm")[0])         #s=1
