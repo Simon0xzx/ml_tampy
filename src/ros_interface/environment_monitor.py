@@ -46,7 +46,7 @@ class EnvironmentMonitor:
 					matching = params[matching_index]
 				else:
 					rec_objects.append(matchings[matching])
-			
+
 			if matching:
 				matchings[matching] = obj
 

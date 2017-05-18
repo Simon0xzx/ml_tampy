@@ -4,13 +4,13 @@ import pickle
 import rospy
 from std_msgs.msg import String
 
-from baxter_plan.msg import ActionMSG
-from baxter_plan.msg import ActionPredMSG
-from baxter_plan.msg import FloatArrayMSG
-from baxter_plan.msg import GeomMSG
-from baxter_plan.msg import ParameterMSG
-from baxter_plan.msg import PlanMSG
-from baxter_plan.msg import PredicateMSG
+from ros_interface.msg._ActionMSG import ActionMSG
+from ros_interface.msg._ActionPredMSG import ActionPredMSG
+from ros_interface.msg._FloatArrayMSG import FloatArrayMSG
+from ros_interface.msg._GeomMSG import GeomMSG
+from ros_interface.msg._ParameterMSG import ParameterMSG
+from ros_interface.msg._PlanMSG import PlanMSG
+from ros_interface.msg._PredicateMSG import PredicateMSG
 
 class PlanPublisher(object):
 	def publish_plan(self, plan):
@@ -23,8 +23,8 @@ class PlanPublisher(object):
 	def create_geom_msg(self, geom):
 		geom_msg = GeomMSG()
 		geom_msg.class_path = str(type(geom)).split("'")[1]
-		
-		try: 
+
+		try:
 			geom_msg.data = pickle.dumps(geom)
 		except pickle.PicklingError:
 			print "Could not pickle {0}.".format(type(geom))

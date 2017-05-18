@@ -201,7 +201,7 @@ class TestBaxterPredicates(unittest.TestCase):
         robot = ParamSetup.setup_baxter()
         test_env = ParamSetup.setup_env()
         rPose = ParamSetup.setup_baxter_pose()
-        ee_pose = ParamSetup.setup_pr2_ee_pose()
+        ee_pose = ParamSetup.setup_ee_pose()
 
         pred = baxter_predicates.BaxterEEReachablePos("ee_reachable", [robot, rPose, ee_pose], ["Robot", "RobotPose", "EEPose"], test_env)
         pred2 = baxter_predicates.BaxterEEReachableRot("ee_reachable_rot", [robot, rPose, ee_pose], ["Robot", "RobotPose", "EEPose"], test_env)
@@ -211,8 +211,8 @@ class TestBaxterPredicates(unittest.TestCase):
 
         ee_pose.value = np.array([[1.2, -0.1, 0.925]]).T
         ee_pose.rotation = np.array([[0,0,0]]).T
-        ee_pos = ParamSetup.setup_green_can()
-        ee_body = OpenRAVEBody(test_env, "EE_Pose", ee_pos.geom)
+        ee_targ = ParamSetup.setup_green_can()
+        ee_body = OpenRAVEBody(test_env, "EE_Pose", ee_targ.geom)
         ee_body.set_pose(ee_pose.value[:, 0], ee_pose.rotation[:, 0])
 
         robot.lArmPose = np.zeros((7,7))
@@ -465,7 +465,7 @@ class TestBaxterPredicates(unittest.TestCase):
         robot = ParamSetup.setup_baxter()
         test_env = ParamSetup.setup_env()
         rPose = ParamSetup.setup_baxter_pose()
-        ee_pose = ParamSetup.setup_pr2_ee_pose()
+        ee_pose = ParamSetup.setup_ee_pose()
 
         pred = baxter_predicates.BaxterEEReachableInvPos("ee_reachable", [robot, rPose, ee_pose], ["Robot", "RobotPose", "EEPose"], test_env)
         pred2 = baxter_predicates.BaxterEEReachableInvRot("ee_reachable_rot", [robot, rPose, ee_pose], ["Robot", "RobotPose", "EEPose"], test_env)

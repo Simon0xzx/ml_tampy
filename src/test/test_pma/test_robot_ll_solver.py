@@ -54,16 +54,16 @@ class TestRobotLLSolver(unittest.TestCase):
     #     _test_plan(self, self.move_hold_prob)
 
     # successful
-    def test_complex_grab_prob(self):
-        TRIALS = 1
-        complete_time = []
-        start_time = time.time()
-        for i in range(TRIALS):
-            self.complex_grab_prob = self.get_plan('../domains/baxter_domain/baxter_probs/baxter_complex_grasp.prob', ['0: GRASP BAXTER CAN0 TARGET0 PDP_TARGET0 EE_TARGET0 ROBOT_END_POSE'])
-            complete_time.append(_test_plan(self, self.complex_grab_prob))
-        end_time = time.time()
-        print "Process completed in {}s".format(end_time - start_time)
-        print complete_time
+    # def test_complex_grab_prob(self):
+    #     TRIALS = 1
+    #     complete_time = []
+    #     start_time = time.time()
+    #     for i in range(TRIALS):
+    #         self.complex_grab_prob = self.get_plan('../domains/baxter_domain/baxter_probs/baxter_complex_grasp.prob', ['0: GRASP BAXTER CAN0 TARGET0 PDP_TARGET0 EE_TARGET0 ROBOT_END_POSE'])
+    #         complete_time.append(_test_plan(self, self.complex_grab_prob))
+    #     end_time = time.time()
+    #     print "Process completed in {}s".format(end_time - start_time)
+    #     print complete_time
 
     # def test_putdown_prob(self):
     #     _test_plan(self, self.putdown_prob)

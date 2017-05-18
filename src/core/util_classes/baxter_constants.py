@@ -1,7 +1,15 @@
+import numpy as np
 """
-This file contains all constants necessary for running motion planning in baxter domain. Every class that needs to use these constants should refference to this file.
+This file contains constants specifically in baxter domain.
+This file is refferenced in:
+    baxter_predicates
+    baxter_sampling
+    test_baxter_predicates
 """
 
+"""
+Following Constants are used in baxter_predicates
+"""
 # Baxter dimension constant
 BASE_DIM = 1
 JOINT_DIM = 16
@@ -37,8 +45,19 @@ GRASP_VALID_COEFF = 1e1
 GRIPPER_OPEN_VALUE = 0.02
 GRIPPER_CLOSE_VALUE = 0.015
 
-# Tolerance
-TOL = 1e-4
+"""
+Following constants are used in baxter_sampling
+"""
 
-# Predicate Gradient Test Option
-TEST_GRAD = True
+EE_ANGLE_SAMPLE_SIZE = 8
+NUM_RESAMPLES = 10
+MAX_ITERATION_STEP = 200
+BIAS_RADIUS = 0.1
+ROT_BIAS = np.pi/8
+
+"""
+Following constants are for testing purposes
+"""
+
+TOL = 1e-4
+TEST_GRAD = False

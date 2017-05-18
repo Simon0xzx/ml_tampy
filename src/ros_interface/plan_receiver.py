@@ -45,7 +45,7 @@ class PlanReceiver(object):
 					pub.publish("Failed action {0}. Failed preds: {1}".format(action.name, str(failed_action_preds)))
 					# return
 				execute_action(action)
-	
+
 	def _build_plan(self, data):
 		print "Building plan."
 		env = Environment()
@@ -125,7 +125,7 @@ class PlanReceiver(object):
 		if geom_class is Baxter:
 			# Fix this
 			geom.shape = "/home/michael/robot_work/tampy/models/baxter/baxter.xml"
-				
+
 		return geom
 
 

@@ -224,7 +224,6 @@ class BaxterInGripperPos(BaxterInGripper):
         obj_jac = -1*np.array([np.cross(axis, obj_pos - gp - obj_trans[:3,3].flatten()) for axis in axises]).T
         obj_jac = np.c_[-np.eye(3), obj_jac]
         # Create final 3x26 jacobian matrix -> (Gradient checked to be correct)
-        #import ipdb;ipdb.set_trace()
         dist_jac = np.hstack((np.zeros((3, 8)), arm_jac, np.zeros((3, 1)), base_jac, obj_jac))
         return dist_val, dist_jac
 
